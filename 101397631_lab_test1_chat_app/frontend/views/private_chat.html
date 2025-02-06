@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Private Chat</title>
+    <link rel="stylesheet" href="../assets/dark-theme.css">
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Private Chat</h2>
+        <p>Logged in as: <span id="user"></span></p>
+
+        <div id="private-chat-setup">
+            <label>Enter Room ID:</label>
+            <input type="text" id="private-room" placeholder="Room ID">
+            <button onclick="joinPrivateRoom()">Join Private Chat</button>
+        </div>
+
+        <div id="private-chat-area" style="display: none;">
+            <h3>Room ID: <span id="private-room-name"></span></h3>
+            <button onclick="leaveRoom()">Leave Room</button>
+            <div class="chat-box" id="private-messages"></div>
+            <div class="typing-indicator" id="private-typing-status"></div>
+            <input type="text" id="private-message" placeholder="Type a message..." oninput="startPrivateTyping()">
+            <button onclick="sendPrivateMessage()">Send</button>
+        </div>
+    </div>
+    <script src="../scripts/private_chat.js"></script>
+</body>
+</html>

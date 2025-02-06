@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Group Chat</title>
+    <link rel="stylesheet" href="../assets/dark-theme.css">
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Group Chat</h2>
+        <p>Welcome, <span id="user"></span></p>
+
+        <!-- Room Selection Area -->
+        <div id="room-selection">
+            <label>Select Room:</label>
+            <select id="room">
+                <option value="devops">DevOps</option>
+                <option value="cloud">Cloud Computing</option>
+                <option value="covid19">COVID-19</option>
+                <option value="sports">Sports</option>
+                <option value="nodejs">NodeJS</option>
+            </select>
+            <button onclick="joinRoom()">Join Room</button>
+            <button onclick="logout()">Logout</button>
+            <button onclick="openPrivateChat()">Private Chat</button>
+        </div>
+
+        <!-- Group Chat Area -->
+        <div id="chat-area" style="display: none;">
+            <h3>Room: <span id="room-name"></span></h3>
+            <button onclick="leaveRoom()">Leave Room</button>
+            <div class="chat-box" id="messages"></div>
+            <div class="typing-indicator" id="typing-status"></div>
+            <input type="text" id="message" placeholder="Type a message..." oninput="startTyping()">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    <script src="../scripts/chat.js"></script>
+</body>
+</html>
